@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            <ion-icon name="information-circle"></ion-icon>&nbsp; Stock Information
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="background">
+    <ion-card class="stock_info">
+        <ion-card-content>
+            <button block (click)="click_scan ()">Scan Barcode</button>
+            <ion-card>
+                <ion-card-header>
+                    Type in Details manually
+                </ion-card-header>
+                <ion-card>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-label floating>Manual Product Code</ion-label>
+                            <ion-input type="text" [(ngModel)]="st_prodcode" (focus)="clear_inputs()"></ion-input>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+                <ion-card>
+                    <ion-card-content class="manual_badcode">
+                        <ion-item>
+                            <ion-label floating>Manual Bar Code</ion-label>
+                            <ion-input type="number" inputmode="numeric" [(ngModel)]="barcode" (focus)="clear_inputs()"></ion-input>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+                <button block (click)="click_retrieve_manual ()">Retrieve Manual Entry</button>
+            </ion-card>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

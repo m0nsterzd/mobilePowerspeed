@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar danger>
+        <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            {{title_name}}
+            <ion-badge right>{{prodcode_count}}</ion-badge>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+<ion-content class="background">
+    <ion-card>
+        <ion-searchbar [showCancelButton]="shouldShowCancel" cancelButtonText="Cancel" (ionInput)="filter_stocktake($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+        <ion-list>
+            <ion-item-group *ngFor="let product of uncounted_products">
+                <ion-item-divider class="uncounted_divider"><strong>{{product.st_prodcode}}</strong>
+                    <button [disabled]="soh_button_disabled" clear item-right (click)="first_count_soh(product.st_prodcode,title_name,product.locations)"><ion-icon name="basket"></ion-icon>SOH</button>
+                </ion-item-divider>
+                <ion-item><strong>Desc&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</strong>{{product.st_desc}}</ion-item>
+                <ion-item><strong>Unit&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</strong>{{product.st_unit}}</ion-item>
+                <ion-item><strong>Location:&nbsp;</strong>{{product.locations}}</ion-item>
+            </ion-item-group>
+        </ion-list>
+    </ion-card>
+</ion-content>

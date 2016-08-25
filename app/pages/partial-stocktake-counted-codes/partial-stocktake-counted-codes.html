@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar secondary>
+        <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            {{title_name}}
+            <ion-badge right>{{prodcode_count}}</ion-badge>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+<ion-content class="background">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content class="myspinner" pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="bubbles"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+    <ion-card>
+        <ion-searchbar [showCancelButton]="shouldShowCancel" cancelButtonText="Cancel" (ionInput)="filter_stocktake($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+        <ion-list>
+            <ion-item-group *ngFor="let product of counted_products">
+                <ion-item-divider class="counted_divider"><strong>{{product.st_prodcode}}</strong>
+                    <button [disabled]="soh_button_disabled"  clear item-right><ion-icon name="basket"></ion-icon>SOH</button>
+                </ion-item-divider>
+                <ion-item><strong>Desc&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</strong>{{product.st_desc}}</ion-item>
+                <ion-item><strong>Unit&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</strong>{{product.st_unit}}</ion-item>
+                <ion-item><strong>Location:&nbsp;</strong>{{product.locations}}</ion-item>
+                <ion-item><strong>First Count:&nbsp;</strong>{{product.first_count}}</ion-item>
+
+            </ion-item-group>
+        </ion-list>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            <ion-icon name="cart"></ion-icon>&nbsp; {{title_name}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="background">
+    <ion-card>
+       
+         <ion-searchbar [showCancelButton]="shouldShowCancel" cancelButtonText="Cancel" (ionInput)="filter_stocktake($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+        <ion-list>
+            <ion-item *ngFor="let stocktake of stocktakes"  (click)="get_stocktake_products(stocktake.partial_stocktake_no)" id="{{stocktake.partial_stocktake_no}}">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col width-15>
+                            <strong>Date:</strong>
+                        </ion-col>
+                        <ion-col width-35>
+                            {{stocktake.date}}
+                        </ion-col>
+                        <ion-col width-15>
+                            &nbsp;&nbsp;<strong>Ref:</strong>
+                        </ion-col>
+                        <ion-col width-35>
+                            {{stocktake.partial_stocktake_no}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col width-15>
+                            <strong>Codes:</strong>
+                        </ion-col>
+                        <ion-col width-35>
+                            {{stocktake.total_products}}
+                        </ion-col>
+                        <ion-col width-15>
+                            &nbsp;<strong>Status:</strong>
+                        </ion-col>
+                        <ion-col width-35>
+                            {{stocktake.status}}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

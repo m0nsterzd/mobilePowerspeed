@@ -1,0 +1,31 @@
+
+<!--<ion-navbar *navbar align-title="center">
+    <ion-title >
+        Login Page
+    </ion-title>
+</ion-navbar>-->
+<ion-content class="background">
+    <ion-card class="login-card">
+        <ion-card-header>
+            Please Login to Powerspeed Mobile App
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input type="text" [(ngModel)]="username"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type="password"  [(ngModel)]="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="text"  [(ngModel)]="reply"></ion-input>
+                </ion-item>
+
+            </ion-list>
+            <button block (click)="click()">Login</button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

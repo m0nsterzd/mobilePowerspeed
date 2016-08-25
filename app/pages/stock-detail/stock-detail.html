@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            <ion-icon name="barcode"></ion-icon>&nbsp; Stock Item Detail
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="background">
+    <ion-card>
+        <ion-card-header>
+            Product Details
+        </ion-card-header>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col width-20 class="stock-header">
+                        <strong>Product:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.st_prodcode}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-20>
+                        <strong>Desc:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.st_ldesc}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-20>
+                        <strong>Unit:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.st_unit}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-20>
+                        <strong>Price:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.st_list}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-20>
+                        <strong>SOH:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.st_soh}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-20>
+                        <strong>MS:</strong>
+                    </ion-col>
+                    <ion-col width-80>
+                        {{manual_value.ms}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            Stock Location Details
+        </ion-card-header>
+        <ion-grid>
+            <ion-row *ngFor="let location of manual_value.locations" >
+                    <ion-col width-80>
+                        <strong>{{location.full_name}}</strong>
+                    </ion-col>
+                    <ion-col width-20>
+                        <strong>Pos #: </strong>&nbsp;{{location.position}}
+                    </ion-col>
+                </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

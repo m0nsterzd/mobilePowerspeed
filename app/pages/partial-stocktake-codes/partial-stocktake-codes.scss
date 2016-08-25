@@ -1,0 +1,21 @@
+.group_divider {
+    border: 1px solid black;
+}
+
+.uncounted_divider {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: lightgrey;
+    border: 2px solid palevioletred;
+}
+
+.toast_success {
+    background-color: lightgreen;
+    opacity: 0.8;
+}
+
+.toast_error {
+    background-color: red;
+    opacity: 0.8;
+}
